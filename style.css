@@ -1,0 +1,154 @@
+.remark-slide-content {
+  background-color: white;
+  border-top: 80px solid coral; /* change this */
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 1em 3em 1em 3em;
+}
+
+@media only screen {
+  html {
+    font-size: calc(1.25*var(--base-font-size));
+  }
+}
+
+.title-slide .inverse .remark-slide-content {
+  background-color: white;
+}
+
+.inverse {
+  background-color: coral; /* change this */
+  text-shadow: none;
+}
+
+.clear{
+  border-top: 0px solid white;
+}
+
+h1 {
+  font-weight: normal;
+  margin-top: -95px;
+  margin-left: -00px;
+  color: white;
+}
+
+h2, h3, h4 {
+  padding-top: -15px;
+  padding-bottom: 00px;
+  color: #8b8989;
+  text-shadow: none;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 00px;
+  margin-bottom: -10px;
+}
+
+.remark-slide-content h1 {
+  font-size: 45px;
+}
+
+.remark-slide-content h2 {
+  font-size: 35px;
+}
+
+.remark-slide-content h3 {
+  font-size: 30px;
+}
+
+.title-slide {
+  background-color: white;
+  border-top: 80px solid white;
+}
+
+.title-slide h1  {
+  color: coral; /* change this */
+  font-size: 40px;
+  text-shadow: none;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 15px;
+  padding-top: 80px;
+}
+.title-slide h2  {
+  margin-top: -25px;
+  padding-bottom: -20px;
+  color: coral; /* change this */
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 35px;
+  text-align: left;
+  margin-left: 15px;
+}
+.title-slide h3  {
+  color: #8b8989;
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -30px;
+}
+
+hr, .title-slide h2::after, .mline h1::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: coral; /* change this */
+  color: #cd5555;
+  height: 1px;
+}
+
+.remark-slide-number {
+  font-size: 13pt;
+  color: #8b8989;
+  opacity: 1;
+}
+.inverse .remark-slide-number {
+  font-size: 13pt;
+  color: white;
+  opacity: 1;
+}
+
+
+/* unvisited link */
+a:link {
+  color: coral;
+}
+
+/* visited link */
+a:visited {
+  color: coral;
+}
+
+/* mouse over link */
+a:hover {
+  color: coral;
+}
+
+/* selected link */
+a:active {
+  color: coral;
+}
+
+.pull-left {
+  padding-top: 0;
+  float: left;
+  width: 35%;
+}
+.pull-right {
+  padding-top: 0;
+  float: right;
+  width: 60%;
+}
+
+.left-column {
+  padding-top: 0;
+  float: left;
+  width: 10%;
+}
+.right-column {
+  padding-top: 0;
+  float: right;
+  width: 85%;
+}
