@@ -9,4 +9,4 @@ acled_df <- acled.api(start.date = "2015-01-01",end.date = "2022-12-31",add.vari
 
 acled_dt <- as.data.table(acled_df)
 
-save(acled_dt,file="acled_global_recent.RData")
+save(acled_dt,file="data/acled_global_recent.RData")

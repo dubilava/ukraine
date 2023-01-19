@@ -152,3 +152,14 @@ a:active {
   float: right;
   width: 85%;
 }
+
+.left-half {
+  padding-top: 0;
+  float: left;
+  width: 47.5%;
+}
+.right-half {
+  padding-top: 0;
+  float: right;
+  width: 47.5%;
+}
