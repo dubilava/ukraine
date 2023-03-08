@@ -1,6 +1,6 @@
 ---
 title: "War in Ukraine and Disrupted Markets"
-subtitle: "13th Annual CAES-SCAE Canadian Agri-food Policy Conference"
+# subtitle: "13th Annual CAES-SCAE Canadian Agri-food Policy Conference"
 author: "David Ubilava"
 date: "University of Sydney"
 output:
@@ -23,9 +23,9 @@ knitr::opts_chunk$set(echo = FALSE)
 # Turbulence in agricultural markets
 
 .right-column[
-Much has been said and written about soaring prices of wheat (and other key cereals) and the repercussions of this price surge from March 2022 onward. 
+Much has been said and [written](https://theconversation.com/russias-war-on-ukraine-is-driving-up-wheat-prices-and-threatens-global-supplies-of-bread-meat-and-eggs-178879) about soaring prices of wheat (and other key cereals) and the repercussions of this price surge from March 2022 onward. 
 
-This presentation is loosely based on [Ferguson and Ubilava (2022)](https://doi.org/10.1111/1467-8489.12497).
+This presentation is (loosely) based on [Ferguson and Ubilava (2022)](https://doi.org/10.1111/1467-8489.12497).
 ]
 
 ---
@@ -232,9 +232,9 @@ When an increase in commodity prices is income-enhancing, two effects of opposit
 # Conflict in Africa in times of the Ukraine war
 
 .left-half[
-- More conflict in sub-Saharan Africa, including in countries that most depend on grain imports from the Black Sea region.
+- More conflict in sub-Saharan Africa, including in countries that import grain from the Black Sea region.
 - Less conflict in North Africa, which has been historically prone to supply shortages from the Black Sea region (Arab Spring 2011).
-- These changes are relative to the 2020-2021 average (lockdowns may have mitigated conflict).
+- These changes are relative to the 2020-2021 average.
 ]
 
 .right-half[
