@@ -1,45 +1,50 @@
 library(data.table)
 library(ggplot2)
+library(ggthemes)
+library(ggdark)
 library(viridis)
 
-# wheat ----
+# grain ----
 
-grain_dt <- fread("data/IGC_rice.csv")
+grain <- "maize"
+
+grain_dt <- fread(paste0("data/IGC_",grain,".csv"))
 grain_dt[,`:=`(Date=as.Date(Date,format="%d/%m/%Y"))]
 
 
-grain_dt[,`:=`(Event=as.character(NA))]
+# grain_dt[,`:=`(Event=as.character(NA))]
 
-grain_dt[Date=="2022-02-24"]$Event <- "Invasion"
-grain_dt[Date=="2022-05-12"]$Event <- "The Solidarity Lanes"
-grain_dt[Date=="2022-07-22"]$Event <- "Black Sea Grain Initiative"
-grain_dt[Date=="2022-11-17"]$Event <- "The Initiative Renewal"
+# grain_dt[Date=="2022-02-24"]$Event <- "Invasion"
+# grain_dt[Date=="2022-05-12"]$Event <- "The Solidarity Lanes"
+# grain_dt[Date=="2022-07-22"]$Event <- "Black Sea Grain Initiative"
+# grain_dt[Date=="2022-11-17"]$Event <- "The Initiative Renewal"
+# 
+# grain_dt[,`:=`(Event_Date=Date,Timeline=ifelse(!is.na(Event),600,as.numeric(NA)))]
+# 
+# grain_dt[Event_Date=="2022-02-24"]$Timeline <- 550
+# grain_dt[Event_Date=="2022-05-12"]$Timeline <- 650
+# grain_dt[Event_Date=="2022-07-22"]$Timeline <- 550
+# 
+# grain_dt[is.na(Event)]$Event_Date <- NA
 
-grain_dt[,`:=`(Event_Date=Date,Timeline=ifelse(!is.na(Event),600,as.numeric(NA)))]
+grain_lg <- melt(grain_dt,id.vars = c("Date"))
 
-grain_dt[Event_Date=="2022-02-24"]$Timeline <- 550
-grain_dt[Event_Date=="2022-05-12"]$Timeline <- 650
-grain_dt[Event_Date=="2022-07-22"]$Timeline <- 550
-
-grain_dt[is.na(Event)]$Event_Date <- NA
-
-grain_lg <- melt(grain_dt,id.vars = c("Date","Event","Event_Date","Timeline"))
-
-grain_sub <- grain_lg#[Date>="2022-01-01" & Date<="2022-12-31"]
+grain_sub <- grain_lg[Date>="2022-01-01" & Date<="2022-12-31"]
 
 gg_grain <- ggplot(grain_sub,aes(x=Date,y=value,color=variable,linetype=variable))+
   geom_line(linewidth=.8)+
-  # scale_color_viridis_d()+
+  scale_color_brewer(type="qual",palette="Set2")+
   # geom_segment(aes(x=Event_Date,xend=Event_Date,y=Timeline,yend=0),linewidth=0.8,col="black",na.rm=T)+
   # geom_point(aes(x=Event_Date,y=Timeline),shape=21,size=3,stroke=1,col="black",fill="darkgray",na.rm=T)+
   # geom_text(aes(x=Event_Date,y=Timeline,label=Event),nudge_y=35,na.rm=T)+
   # geom_text(aes(x=Event_Date,y=Timeline,label=Date),size=3,nudge_x=30,na.rm=T)+
   # coord_cartesian(ylim=c(0,600),xlim=c(as.Date("2022-01-01"),as.Date("2023-01-15")))+
-  labs(y="Wheat Price (USD/mt)")+
-  theme_classic()+
+  labs(y=paste0(grain," price ($/mt)"),x="year")+
+  dark_theme_classic()+
   theme(axis.title = element_text(size=16),axis.text = element_text(size=14),legend.title=element_blank())
 
 gg_grain
+
 
 ggsave("figures/wheat.png",gg_wheat,width=6.5,height=4.25,dpi="retina",device="png")
 ggsave("figures/wheat.eps",gg_wheat,width=6.5,height=4.25,dpi="retina",device="eps")
