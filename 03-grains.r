@@ -3,6 +3,22 @@ library(ggplot2)
 library(ggthemes)
 library(ggdark)
 
+# vessels ----
+
+vessels_dt <- fread("data/Black Sea Grain Initiative Voyages - Data.csv")
+
+vessels_dt[,`:=`(Tonnage=as.numeric(Tonnage),Departure=as.Date(Departure,format="%d-%b-%y"))]
+vessels_dt[,`:=`(Month=as.Date(paste0(substr(Departure,1,7),"-01")))]
+
+monthly_dt <- vessels_dt[,.(Tonnage=sum(Tonnage)),by=.(Commodity,Month)]
+
+monthly_dt$Commodity <- factor(monthly_dt$Commodity,levels=c("Wheat","Corn"))
+
+ggplot(monthly_dt[Commodity%in%c("Wheat","Corn")],aes(x=Month,y=Tonnage,fill=Commodity))+
+  geom_col()+
+  scale_fill_manual(values=c("coral","gray"))+
+  dark_theme_classic()
+
 # grains ----
 
 grain <- "wheat"
